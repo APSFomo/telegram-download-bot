@@ -1,3 +1,4 @@
+from dotenv import load_dotenv
 import os
 import requests
 import tempfile
@@ -11,8 +12,12 @@ import time
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes, CallbackQueryHandler
 
+
+#environtment variables 
+load_dotenv() 
+bot_value = os.getenv('BOT_TOKEN_KEY')
 # Bot configuration
-BOT_TOKEN = "7234599644:AAEvEgD2BSkevUNp29eQI-DuyaNfc7menkc"  # Replace with your bot token
+BOT_TOKEN = bot_value  # Replace with your bot token
 MAX_FILE_SIZE = 50 * 1024 * 1024  # 50MB limit (Telegram's limit)
 
 class FileDownloadBot:
